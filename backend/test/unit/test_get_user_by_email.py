@@ -64,3 +64,12 @@ def test_get_user_by_email_database_exception():
     with pytest.raises(Exception) as e_info:
         user = mocked_controller.get_user_by_email('test@example.com')
     assert "Database error" in str(e_info.value)
+
+# test updating user
+@pytest.mark.unit
+def test_update():
+    dao_mock = Mock(spec=DAO)
+    user_controller = UserController(dao_mock)
+    data = {'name': 'Updated User'}
+    update_result = user_controller.update(id='user_id', data=data)
+    assert update_result == dao_mock.update.return_value
