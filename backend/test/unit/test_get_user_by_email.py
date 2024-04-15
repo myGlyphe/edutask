@@ -3,7 +3,7 @@ from unittest.mock import Mock
 from src.controllers.usercontroller import UserController, DAO
 
 # regex for email validation
-emailValidator = r".+"
+emailValidator = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
 
 # test cases for UserController
 
