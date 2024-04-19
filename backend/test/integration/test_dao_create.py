@@ -103,3 +103,20 @@ def test_create_invalid(sut, document_key):
     with pytest.raises(WriteError):
         created = sut.create(document)
 
+@pytest.mark.integration
+@pytest.mark.parametrize('test_collection_name, document_key', [
+    ('test_user', 'user'),
+    ('test_task', 'task'),
+    ('test_todo', 'todo')])
+def test_create_duplicate(sut, document_key):
+    """
+    Check that it is possible to create duplicate documents.
+    """
+    document = valid_documents[document_key]
+    sut.create(document)
+    created = sut.create(document)
+
+    # Remove the generated _id key before comparison
+    del created['_id']
+    assert document == created
+
