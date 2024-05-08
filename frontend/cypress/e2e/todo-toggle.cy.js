@@ -70,7 +70,7 @@ describe('Toggle todo-item', () => {
       .first()
   }
 
-  it('change todo-item to done', () => {
+  it('2.1 Change todo-item to done', () => {
     let toggleIcon = firstTodoToggleIcon();
 
     // Click the icon in front of the description
@@ -91,7 +91,7 @@ describe('Toggle todo-item', () => {
       .click();
   })
 
-  it('change todo-item to active', () => {
+  it('2.2 Change todo-item to active', () => {
     let toggleIcon = firstTodoToggleIcon();
 
     // Click the icon in front of the description 2 times

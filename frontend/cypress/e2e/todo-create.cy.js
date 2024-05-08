@@ -59,7 +59,7 @@ describe('Add a todo-item', () => {
 
   })
 
-  it('create a todo-item with a description', () => {
+  it('1.1 Create a todo-item with a description', () => {
     // Find the input box in the popup, type a description and submit
     const description = "Test todo";
 
@@ -96,7 +96,7 @@ describe('Add a todo-item', () => {
       .click();
   })
 
-  it('try to create a todo-item with no description', () => {
+  it('1.2 Try to create a todo-item with no description', () => {
     // Assert that the Add-button is initially disabled
     // (will fail due to latest update of frontend)
     cy.get('.popup .todo-list')

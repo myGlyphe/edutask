@@ -59,7 +59,7 @@ describe('Delete todo-item', () => {
 
   })
 
-  it('delete todo-item', () => {
+  it('3.1 Delete todo-item', () => {
     // Assert that the length of the todo-list is two
     // (one todo-item plus the form to add todos)
     cy.get('.popup .todo-list')  // ul
