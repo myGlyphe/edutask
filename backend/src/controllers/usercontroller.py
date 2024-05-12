@@ -2,7 +2,9 @@ from src.controllers.controller import Controller
 from src.util.dao import DAO
 
 import re
-emailValidator = re.compile(r'.*@.*')
+#emailValidator = re.compile(r'.*@.*')
+# NEW: regular expression for email validation that is more accurate
+emailValidator = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
 
 class UserController(Controller):
     def __init__(self, dao: DAO):
@@ -32,6 +34,11 @@ class UserController(Controller):
             users = self.dao.find({'email': email})
             if len(users) == 1:
                 return users[0]
+            
+            # NEW: check if there are no users with that email
+            elif len(users) == 0:
+                return None
+            
             else:
                 print(f'Error: more than one user found with mail {email}')
                 return users[0]
